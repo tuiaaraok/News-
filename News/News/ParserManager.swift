@@ -16,6 +16,7 @@ class ParserManager: NSObject, XMLParserDelegate {
     var element = NSString()
     var title = NSMutableString()
     var link = NSMutableString()
+    var category = NSMutableString()
     var img:  [AnyObject] = []
     var fdescription = NSMutableString()
     var fdate = NSMutableString()
@@ -49,6 +50,8 @@ class ParserManager: NSObject, XMLParserDelegate {
             title = ""
             link = NSMutableString()
             link = ""
+            category = NSMutableString()
+            category = ""
             fdescription = NSMutableString()
             fdescription = ""
             fdate = NSMutableString()
@@ -77,6 +80,9 @@ class ParserManager: NSObject, XMLParserDelegate {
             if fdate != "" {
                 elements.setObject(fdate, forKey: "pubDate" as NSCopying)
             }
+            if category != "" {
+                elements.setObject(fdate, forKey: "category" as NSCopying)
+            }
             feeds.add(elements)
         }
     }
@@ -90,6 +96,8 @@ class ParserManager: NSObject, XMLParserDelegate {
             fdescription.append(string)
         } else if element.isEqual(to: "pubDate") {
             fdate.append(string)
+        }else if element.isEqual(to: "category") {
+            category.append(string)
         }
     }
 }

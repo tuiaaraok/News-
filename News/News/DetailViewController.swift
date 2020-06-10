@@ -31,7 +31,6 @@ class DetailViewController: UIViewController {
         fullTextLabel.text = (rssItem as AnyObject).object(forKey: "yandex:full-text") as? String
        
         
-
         dateLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         mainImage.translatesAutoresizingMaskIntoConstraints = false
